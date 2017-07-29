@@ -4,6 +4,7 @@ import java.util.List;
 
 import riviasoftware.githubapplicationmvp.Manager.NetworkManager;
 import riviasoftware.githubapplicationmvp.Model.Data.GithubUser;
+import riviasoftware.githubapplicationmvp.Model.Data.GithubUserDetail;
 import riviasoftware.githubapplicationmvp.View.MainActivity;
 import riviasoftware.githubapplicationmvp.View.MainActivityFragment;
 
@@ -47,4 +48,7 @@ public class MainFragmentPresenter implements Presenter {
     public void setUsers(List<GithubUser> users) {
         pintarUsuarios(users);
     }
+
+    @Override
+    public void setDetailUser(GithubUserDetail user) {}
 }

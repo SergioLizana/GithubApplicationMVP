@@ -12,5 +12,5 @@ import riviasoftware.githubapplicationmvp.Presenter.Presenter;
 
 public interface NetworkManager {
     void getUsers(Presenter presenter);
-    void getUserDetail(String userName);
+    void getUserDetail(Presenter presenter, String userName);
 }

@@ -43,7 +43,7 @@ public class MainActivityFragment extends Fragment {
         if (savedInstanceState == null) {
             users = new ArrayList<GithubUser>();
         } else {
-            users = savedInstanceState.getParcelableArrayList("movies");
+            users = savedInstanceState.getParcelableArrayList("users");
         }
         NetworkManager networkManager = new NetworkManagerImpl();
         presenter = new MainFragmentPresenter(networkManager);

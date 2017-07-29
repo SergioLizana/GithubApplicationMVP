@@ -1,160 +1,236 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+
 <android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_marginBottom="20dp">
 
     <TextView
-        android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="-9dp"
-        android:layout_marginTop="0dp"
-        android:text="Compa shitxs"
-        app:layout_constraintLeft_toLeftOf="@+id/textView18"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+        tools:text="Company"
+        android:text="@string/company"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="8dp"
+        android:id="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Github"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintLeft_toLeftOf="@+id/textView"
+        android:id="@+id/company_name" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/location"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/textview666"
+        android:layout_marginTop="@dimen/separation_between_items"
+        app:layout_constraintTop_toBottomOf="@+id/company_name"
+        android:layout_marginStart="8dp" />
+    <TextView
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="San Francisco"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/textview666"
+        app:layout_constraintLeft_toLeftOf="@+id/textview666"
+         />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/email"
+        android:id="@+id/textView5"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="@dimen/separation_between_items"
+        app:layout_constraintTop_toBottomOf="@+id/location"
+        android:layout_marginStart="8dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="asdfgg@mail.com"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintLeft_toLeftOf="@+id/textView5"
+        android:id="@+id/email" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/blog"
+        android:id="@+id/textView6"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="@dimen/separation_between_items"
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        android:layout_marginStart="8dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="http://www.github.com/blog"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintLeft_toLeftOf="@+id/textView6"
+        android:id="@+id/blog" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/usertype"
+        android:id="@+id/textView7"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="@dimen/separation_between_items"
+        app:layout_constraintTop_toBottomOf="@+id/blog"
+        android:layout_marginStart="8dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Not Admin"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintLeft_toLeftOf="@+id/textView7"
+        android:id="@+id/user_type" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/followers"
+        android:id="@+id/textView8"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="@dimen/separation_between_items"
+        app:layout_constraintTop_toBottomOf="@+id/user_type"
+        android:layout_marginStart="8dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintLeft_toLeftOf="@+id/textView8"
+        android:id="@+id/followers" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/public_repos"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:id="@+id/textView10"
+        android:layout_marginTop="@dimen/separation_between_items"
+        app:layout_constraintTop_toBottomOf="@+id/followers"
+        android:layout_marginStart="8dp" />
+    <TextView
+        android:id="@+id/public_repos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        app:layout_constraintLeft_toLeftOf="@+id/textView10" />
+
 
     <TextView
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="23dp"
-        android:text="Company"
-        app:layout_constraintLeft_toLeftOf="@+id/textView9"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        android:layout_marginTop="@dimen/separation_between_items"
+        android:text="@string/public_gist"
+        app:layout_constraintLeft_toLeftOf="@+id/public_repos"
+        app:layout_constraintTop_toBottomOf="@+id/public_repos" />
+    <TextView
+        android:id="@+id/public_gist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="20"
+        app:layout_constraintLeft_toLeftOf="@+id/textView18"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Company"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView10"
-        android:layout_marginLeft="0dp"
-        app:layout_constraintLeft_toLeftOf="@+id/textView10" />
+        android:layout_marginTop="@dimen/separation_between_items"
+        android:text="@string/registration_date"
+        app:layout_constraintLeft_toLeftOf="@+id/public_gist"
+        app:layout_constraintTop_toBottomOf="@+id/public_gist" />
 
     <TextView
+        android:id="@+id/registration_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Company"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="8dp"
-        android:id="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Company"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:id="@+id/textView10"
-        android:layout_marginTop="31dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Company"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
-        android:layout_marginLeft="0dp"
-        app:layout_constraintLeft_toLeftOf="@+id/textView8"
-        android:id="@+id/textView16" />
+        android:text="20/10/1998"
+        app:layout_constraintLeft_toLeftOf="@+id/textView19"
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
     <TextView
+        android:id="@+id/textView20"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Company"
-        android:id="@+id/textView8"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="40dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        android:layout_marginTop="@dimen/separation_between_items"
+        android:text="@string/last_update"
+        app:layout_constraintLeft_toLeftOf="@+id/registration_date"
+        app:layout_constraintTop_toBottomOf="@+id/registration_date" />
+
     <TextView
+        android:id="@+id/last_update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Company"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        android:layout_marginLeft="0dp"
-        app:layout_constraintLeft_toLeftOf="@+id/textView7"
-        android:id="@+id/textView15" />
+        android:text="12/06/1999"
+        app:layout_constraintLeft_toLeftOf="@+id/textView20"
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
     <TextView
+        android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Company"
-        android:id="@+id/textView7"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="36dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        android:layout_marginTop="@dimen/separation_between_items"
+        android:text="@string/hireable"
+        app:layout_constraintLeft_toLeftOf="@+id/last_update"
+        app:layout_constraintTop_toBottomOf="@+id/last_update" />
     <TextView
+        android:id="@+id/hireable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Company"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
-        android:layout_marginLeft="0dp"
-        app:layout_constraintLeft_toLeftOf="@+id/textView6"
-        android:id="@+id/textView14" />
+        android:text="not at the moment"
+        app:layout_constraintLeft_toLeftOf="@+id/textView21"
+        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
     <TextView
+        android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Company"
-        android:id="@+id/textView6"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="31dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+        android:layout_marginTop="@dimen/separation_between_items"
+        android:text="@string/bio"
+        app:layout_constraintLeft_toLeftOf="@+id/hireable"
+        app:layout_constraintTop_toBottomOf="@+id/hireable" />
     <TextView
+        android:id="@+id/bio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Company"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        android:layout_marginLeft="0dp"
-        app:layout_constraintLeft_toLeftOf="@+id/textView5"
-        android:id="@+id/textView13" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Company"
-        android:id="@+id/textView5"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="39dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Company"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        android:layout_marginLeft="0dp"
-        app:layout_constraintLeft_toLeftOf="@+id/textView4"
-        android:id="@+id/textView12" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Company"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:id="@+id/textView4"
-        android:layout_marginTop="38dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Company"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintLeft_toLeftOf="@+id/textView"
-        android:id="@+id/textView11"
-        android:layout_marginLeft="0dp" />
+        android:text="this is my bio"
+        app:layout_constraintLeft_toLeftOf="@+id/textView22"
+        app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
 </android.support.constraint.ConstraintLayout>
-</ScrollView>

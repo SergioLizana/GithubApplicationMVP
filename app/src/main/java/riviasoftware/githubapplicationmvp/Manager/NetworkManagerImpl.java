@@ -45,17 +45,17 @@ public class NetworkManagerImpl implements NetworkManager {
     }
 
     @Override
-    public void getUserDetail(String userName) {
-        Call<GithubUserDetail> response = githubService.getUserInfo(userName);
+    public void getUserDetail(final Presenter presenter, String name) {
+        Call<GithubUserDetail> response = githubService.getUserInfo(name);
         response.enqueue(new Callback<GithubUserDetail>() {
             @Override
             public void onResponse(Call<GithubUserDetail> call, Response<GithubUserDetail> response) {
                 if (response.isSuccessful()) {
-
+                    presenter.setDetailUser(response.body());
 
                 } else {
-
-
+                    int statusCode = response.code();
+                    Log.d("Detail", "error loading from API status code: " + statusCode);
                 }
             }
 
