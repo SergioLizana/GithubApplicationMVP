@@ -1,13 +1,15 @@
-package riviasoftware.githubapplicationmvp.Presenter;
+package riviasoftware.githubapplicationmvp.ui.presenters;
 
 import java.util.List;
 
-import riviasoftware.githubapplicationmvp.Manager.NetworkManager;
-import riviasoftware.githubapplicationmvp.Model.Data.GithubUser;
-import riviasoftware.githubapplicationmvp.Model.Data.GithubUserDetail;
-import riviasoftware.githubapplicationmvp.View.DetailActivity;
-import riviasoftware.githubapplicationmvp.View.DetailFragment;
-import riviasoftware.githubapplicationmvp.View.MainActivity;
+import javax.inject.Inject;
+
+import riviasoftware.githubapplicationmvp.manager.NetworkManager;
+import riviasoftware.githubapplicationmvp.model.GithubUser;
+import riviasoftware.githubapplicationmvp.model.GithubUserDetail;
+import riviasoftware.githubapplicationmvp.ui.view.DetailActivity;
+import riviasoftware.githubapplicationmvp.ui.view.DetailFragment;
+
 
 /**
  * Created by sergiolizanamontero on 28/7/17.
@@ -19,9 +21,11 @@ public class DetailFragmentPresenter implements Presenter {
     GithubUserDetail user;
     private String name;
 
+
     NetworkManager networkManager;
     DetailFragment detailFragment;
     DetailActivity detailActivity;
+
 
     public DetailFragmentPresenter(NetworkManager networkManager) {
         this.networkManager = networkManager;

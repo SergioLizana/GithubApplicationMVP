@@ -1,9 +1,9 @@
-package riviasoftware.githubapplicationmvp.Presenter;
+package riviasoftware.githubapplicationmvp.ui.presenters;
 
 import java.util.List;
 
-import riviasoftware.githubapplicationmvp.Model.Data.GithubUser;
-import riviasoftware.githubapplicationmvp.Model.Data.GithubUserDetail;
+import riviasoftware.githubapplicationmvp.model.GithubUser;
+import riviasoftware.githubapplicationmvp.model.GithubUserDetail;
 
 /**
  * Created by sergiolizanamontero on 26/7/17.

@@ -1,7 +1,7 @@
-package riviasoftware.githubapplicationmvp.Model.Data.Retrofit.utils;
+package riviasoftware.githubapplicationmvp.Network.retrofit.utils;
 
-import riviasoftware.githubapplicationmvp.Model.Data.Retrofit.RetrofitClient;
-import riviasoftware.githubapplicationmvp.Model.Data.Retrofit.services.GithubService;
+import riviasoftware.githubapplicationmvp.Network.retrofit.RetrofitClient;
+import riviasoftware.githubapplicationmvp.Network.retrofit.services.GithubService;
 
 public class ApiUtils {
 

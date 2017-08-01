@@ -48,7 +48,7 @@
             xmlns:tools="http://schemas.android.com/tools">
             <fragment
                 android:id="@+id/fragment_detail"
-                android:name="riviasoftware.githubapplicationmvp.View.DetailFragment"
+                android:name="riviasoftware.githubapplicationmvp.ui.view.DetailFragment"
                 android:layout_width="368dp"
                 android:layout_height="920dp"
                 tools:layout="@layout/fragment_detail"

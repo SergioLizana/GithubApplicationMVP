@@ -1,4 +1,4 @@
-package riviasoftware.githubapplicationmvp.Model.Data.Retrofit;
+package riviasoftware.githubapplicationmvp.Network.retrofit;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

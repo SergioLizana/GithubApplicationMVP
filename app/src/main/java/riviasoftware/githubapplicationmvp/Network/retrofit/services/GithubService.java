@@ -1,12 +1,12 @@
-package riviasoftware.githubapplicationmvp.Model.Data.Retrofit.services;
+package riviasoftware.githubapplicationmvp.Network.retrofit.services;
 
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
-import riviasoftware.githubapplicationmvp.Model.Data.GithubUser;
-import riviasoftware.githubapplicationmvp.Model.Data.GithubUserDetail;
+import riviasoftware.githubapplicationmvp.model.GithubUser;
+import riviasoftware.githubapplicationmvp.model.GithubUserDetail;
 
 
 public interface GithubService {

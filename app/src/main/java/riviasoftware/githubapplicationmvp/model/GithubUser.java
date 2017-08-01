@@ -1,4 +1,4 @@
-package riviasoftware.githubapplicationmvp.Model.Data;
+package riviasoftware.githubapplicationmvp.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -10,7 +10,8 @@ import com.google.gson.annotations.SerializedName;
  * Created by sergiolizanamontero on 26/7/17.
  */
 
-public class GithubUserDetail implements Parcelable {
+public class GithubUser implements Parcelable {
+
     @SerializedName("login")
     @Expose
     private String login;
@@ -62,45 +63,29 @@ public class GithubUserDetail implements Parcelable {
     @SerializedName("site_admin")
     @Expose
     private Boolean siteAdmin;
-    @SerializedName("name")
-    @Expose
-    private String name;
-    @SerializedName("company")
-    @Expose
-    private String company;
-    @SerializedName("blog")
-    @Expose
-    private String blog;
-    @SerializedName("location")
-    @Expose
-    private String location;
-    @SerializedName("email")
-    @Expose
-    private Object email;
-    @SerializedName("hireable")
-    @Expose
-    private Boolean hireable;
-    @SerializedName("bio")
-    @Expose
-    private Object bio;
-    @SerializedName("public_repos")
-    @Expose
-    private Integer publicRepos;
-    @SerializedName("public_gists")
-    @Expose
-    private Integer publicGists;
-    @SerializedName("followers")
-    @Expose
-    private Integer followers;
-    @SerializedName("following")
-    @Expose
-    private Integer following;
-    @SerializedName("created_at")
-    @Expose
-    private String createdAt;
-    @SerializedName("updated_at")
-    @Expose
-    private String updatedAt;
+
+    public GithubUser(String login, Integer id, String avatarUrl, String gravatarId, String url,
+                      String htmlUrl, String followersUrl, String followingUrl, String gistsUrl,
+                      String starredUrl, String subscriptionsUrl, String organizationsUrl,
+                      String reposUrl, String eventsUrl, String receivedEventsUrl, String type, Boolean siteAdmin) {
+        this.login = login;
+        this.id = id;
+        this.avatarUrl = avatarUrl;
+        this.gravatarId = gravatarId;
+        this.url = url;
+        this.htmlUrl = htmlUrl;
+        this.followersUrl = followersUrl;
+        this.followingUrl = followingUrl;
+        this.gistsUrl = gistsUrl;
+        this.starredUrl = starredUrl;
+        this.subscriptionsUrl = subscriptionsUrl;
+        this.organizationsUrl = organizationsUrl;
+        this.reposUrl = reposUrl;
+        this.eventsUrl = eventsUrl;
+        this.receivedEventsUrl = receivedEventsUrl;
+        this.type = type;
+        this.siteAdmin = siteAdmin;
+    }
 
     public String getLogin() {
         return login;
@@ -238,110 +223,6 @@ public class GithubUserDetail implements Parcelable {
         this.siteAdmin = siteAdmin;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getCompany() {
-        return company;
-    }
-
-    public void setCompany(String company) {
-        this.company = company;
-    }
-
-    public String getBlog() {
-        return blog;
-    }
-
-    public void setBlog(String blog) {
-        this.blog = blog;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public Object getEmail() {
-        return email;
-    }
-
-    public void setEmail(Object email) {
-        this.email = email;
-    }
-
-    public Boolean getHireable() {
-        return hireable;
-    }
-
-    public void setHireable(Boolean hireable) {
-        this.hireable = hireable;
-    }
-
-    public Object getBio() {
-        return bio;
-    }
-
-    public void setBio(Object bio) {
-        this.bio = bio;
-    }
-
-    public Integer getPublicRepos() {
-        return publicRepos;
-    }
-
-    public void setPublicRepos(Integer publicRepos) {
-        this.publicRepos = publicRepos;
-    }
-
-    public Integer getPublicGists() {
-        return publicGists;
-    }
-
-    public void setPublicGists(Integer publicGists) {
-        this.publicGists = publicGists;
-    }
-
-    public Integer getFollowers() {
-        return followers;
-    }
-
-    public void setFollowers(Integer followers) {
-        this.followers = followers;
-    }
-
-    public Integer getFollowing() {
-        return following;
-    }
-
-    public void setFollowing(Integer following) {
-        this.following = following;
-    }
-
-    public String getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public String getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
     @Override
     public int describeContents() {
         return 0;
@@ -366,25 +247,12 @@ public class GithubUserDetail implements Parcelable {
         dest.writeString(this.receivedEventsUrl);
         dest.writeString(this.type);
         dest.writeValue(this.siteAdmin);
-        dest.writeString(this.name);
-        dest.writeString(this.company);
-        dest.writeString(this.blog);
-        dest.writeString(this.location);
-        dest.writeParcelable((Parcelable)this.email, flags);
-        dest.writeValue(this.hireable);
-        dest.writeParcelable((Parcelable)this.bio, flags);
-        dest.writeValue(this.publicRepos);
-        dest.writeValue(this.publicGists);
-        dest.writeValue(this.followers);
-        dest.writeValue(this.following);
-        dest.writeString(this.createdAt);
-        dest.writeString(this.updatedAt);
     }
 
-    public GithubUserDetail() {
+    public GithubUser() {
     }
 
-    protected GithubUserDetail(Parcel in) {
+    protected GithubUser(Parcel in) {
         this.login = in.readString();
         this.id = (Integer) in.readValue(Integer.class.getClassLoader());
         this.avatarUrl = in.readString();
@@ -402,30 +270,17 @@ public class GithubUserDetail implements Parcelable {
         this.receivedEventsUrl = in.readString();
         this.type = in.readString();
         this.siteAdmin = (Boolean) in.readValue(Boolean.class.getClassLoader());
-        this.name = in.readString();
-        this.company = in.readString();
-        this.blog = in.readString();
-        this.location = in.readString();
-        this.email = in.readParcelable(Object.class.getClassLoader());
-        this.hireable = (Boolean) in.readValue(Boolean.class.getClassLoader());
-        this.bio = in.readParcelable(Object.class.getClassLoader());
-        this.publicRepos = (Integer) in.readValue(Integer.class.getClassLoader());
-        this.publicGists = (Integer) in.readValue(Integer.class.getClassLoader());
-        this.followers = (Integer) in.readValue(Integer.class.getClassLoader());
-        this.following = (Integer) in.readValue(Integer.class.getClassLoader());
-        this.createdAt = in.readString();
-        this.updatedAt = in.readString();
     }
 
-    public static final Parcelable.Creator<GithubUserDetail> CREATOR = new Parcelable.Creator<GithubUserDetail>() {
+    public static final Parcelable.Creator<GithubUser> CREATOR = new Parcelable.Creator<GithubUser>() {
         @Override
-        public GithubUserDetail createFromParcel(Parcel source) {
-            return new GithubUserDetail(source);
+        public GithubUser createFromParcel(Parcel source) {
+            return new GithubUser(source);
         }
 
         @Override
-        public GithubUserDetail[] newArray(int size) {
-            return new GithubUserDetail[size];
+        public GithubUser[] newArray(int size) {
+            return new GithubUser[size];
         }
     };
 }

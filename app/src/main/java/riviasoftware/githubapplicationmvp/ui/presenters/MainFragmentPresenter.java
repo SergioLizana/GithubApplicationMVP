@@ -1,12 +1,13 @@
-package riviasoftware.githubapplicationmvp.Presenter;
+package riviasoftware.githubapplicationmvp.ui.presenters;
 
 import java.util.List;
 
-import riviasoftware.githubapplicationmvp.Manager.NetworkManager;
-import riviasoftware.githubapplicationmvp.Model.Data.GithubUser;
-import riviasoftware.githubapplicationmvp.Model.Data.GithubUserDetail;
-import riviasoftware.githubapplicationmvp.View.MainActivity;
-import riviasoftware.githubapplicationmvp.View.MainActivityFragment;
+import javax.inject.Inject;
+
+import riviasoftware.githubapplicationmvp.manager.NetworkManager;
+import riviasoftware.githubapplicationmvp.model.GithubUser;
+import riviasoftware.githubapplicationmvp.model.GithubUserDetail;
+import riviasoftware.githubapplicationmvp.ui.view.MainActivityFragment;
 
 /**
  * Created by sergiolizanamontero on 26/7/17.
@@ -18,6 +19,7 @@ public class MainFragmentPresenter implements Presenter {
 
     NetworkManager networkManager;
     MainActivityFragment mainActivityFragment;
+
 
     public MainFragmentPresenter(NetworkManager networkManager) {
         this.networkManager = networkManager;
@@ -43,6 +45,12 @@ public class MainFragmentPresenter implements Presenter {
 
     }
 
+    public void launchDetail(GithubUser user){
+        if (mainActivityFragment != null){
+            mainActivityFragment.launchDetail(user);
+        }
+
+    }
 
     @Override
     public void setUsers(List<GithubUser> users) {

@@ -1,4 +1,4 @@
-package riviasoftware.githubapplicationmvp.View;
+package riviasoftware.githubapplicationmvp.ui.view;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,19 +7,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import riviasoftware.githubapplicationmvp.Manager.NetworkManager;
-import riviasoftware.githubapplicationmvp.Manager.NetworkManagerImpl;
-import riviasoftware.githubapplicationmvp.Model.Data.GithubUser;
-import riviasoftware.githubapplicationmvp.Model.Data.GithubUserDetail;
-import riviasoftware.githubapplicationmvp.Presenter.DetailFragmentPresenter;
-import riviasoftware.githubapplicationmvp.Presenter.MainFragmentPresenter;
+import riviasoftware.githubapplicationmvp.app.GithubApplication;
+import riviasoftware.githubapplicationmvp.manager.NetworkManager;
+import riviasoftware.githubapplicationmvp.manager.NetworkManagerImpl;
+import riviasoftware.githubapplicationmvp.model.GithubUser;
+import riviasoftware.githubapplicationmvp.model.GithubUserDetail;
+import riviasoftware.githubapplicationmvp.ui.presenters.DetailFragmentPresenter;
 import riviasoftware.githubapplicationmvp.R;
 
 /**
@@ -29,6 +28,7 @@ import riviasoftware.githubapplicationmvp.R;
 public class DetailFragment extends Fragment {
 
     GithubUser user;
+    @Inject
     DetailFragmentPresenter presenter;
     Unbinder unbinder;
 
@@ -57,8 +57,7 @@ public class DetailFragment extends Fragment {
         } else {
             user = savedInstanceState.getParcelable("user");
         }
-        NetworkManager networkManager = new NetworkManagerImpl();
-        presenter = new DetailFragmentPresenter(networkManager);
+        ((GithubApplication)getActivity().getApplication()).getAppComponent().inject(this);
         presenter.setFragmentActivity(this);
         presenter.setActivity((DetailActivity) getActivity());
         presenter.setName(getActivity().getIntent().getStringExtra("username"));

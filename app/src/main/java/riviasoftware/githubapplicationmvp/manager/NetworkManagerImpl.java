@@ -1,4 +1,4 @@
-package riviasoftware.githubapplicationmvp.Manager;
+package riviasoftware.githubapplicationmvp.manager;
 
 import android.util.Log;
 
@@ -7,11 +7,11 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import riviasoftware.githubapplicationmvp.Model.Data.GithubUser;
-import riviasoftware.githubapplicationmvp.Model.Data.GithubUserDetail;
-import riviasoftware.githubapplicationmvp.Model.Data.Retrofit.services.GithubService;
-import riviasoftware.githubapplicationmvp.Model.Data.Retrofit.utils.ApiUtils;
-import riviasoftware.githubapplicationmvp.Presenter.Presenter;
+import riviasoftware.githubapplicationmvp.model.GithubUser;
+import riviasoftware.githubapplicationmvp.model.GithubUserDetail;
+import riviasoftware.githubapplicationmvp.Network.retrofit.services.GithubService;
+import riviasoftware.githubapplicationmvp.Network.retrofit.utils.ApiUtils;
+import riviasoftware.githubapplicationmvp.ui.presenters.Presenter;
 
 /**
  * Created by sergiolizanamontero on 26/7/17.

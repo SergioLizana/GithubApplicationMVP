@@ -1,42 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/relative_user_in_list"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="20dp"
-    android:layout_marginTop="10dp"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/user_image"
-        android:layout_marginStart="20dp"
-        android:layout_width="60dp"
-        android:layout_height="60dp" />
-
-    <TextView
-        tools:text="Monalisa Octodad"
-        android:id="@+id/user_name"
-        android:layout_width="wrap_content"
+    <data>
+        <variable name="user" type="riviasoftware.githubapplicationmvp.model.GithubUser"/>
+        <variable name="presenter" type="riviasoftware.githubapplicationmvp.ui.presenters.MainFragmentPresenter" />
+    </data>
+    <RelativeLayout
+        android:id="@+id/relative_user_in_list"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="25dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="24dp"
-        android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/user_image" />
-
-    <TextView
-        tools:text="GitHub"
-        android:id="@+id/github_url"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/darker_gray"
+        android:layout_marginBottom="20dp"
         android:layout_marginTop="10dp"
-        android:layout_below="@+id/user_name"
-        android:layout_alignStart="@+id/user_name" />
+        android:onClick="@{() -> presenter.launchDetail(user)}">
 
+        <ImageView
+            android:id="@+id/user_image"
+            android:layout_marginStart="20dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@{user.avatarUrl}"/>/>
 
+        <TextView
+            tools:text="Monalisa Octodad"
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:text="@{user.login}"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="24dp"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/user_image" />
 
-</RelativeLayout>
+        <TextView
+            tools:text="GitHub"
+            android:id="@+id/github_url"
+            android:text="@{user.url}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/darker_gray"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/user_name"
+            android:layout_alignStart="@+id/user_name" />
+
+    </RelativeLayout>
+</layout>

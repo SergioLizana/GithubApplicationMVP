@@ -1,11 +1,13 @@
-package riviasoftware.githubapplicationmvp.View.adapters;
+package riviasoftware.githubapplicationmvp.ui.view.adapters;
 
 import android.content.Context;
+import android.databinding.BindingAdapter;
+import android.databinding.DataBindingUtil;
+import android.databinding.ViewDataBinding;
 import android.graphics.Bitmap;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,13 +18,16 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.BitmapImageViewTarget;
 
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 import java.util.List;
 
-import riviasoftware.githubapplicationmvp.Model.Data.GithubUser;
+import riviasoftware.githubapplicationmvp.BR;
+import riviasoftware.githubapplicationmvp.databinding.UserListBinding;
+import riviasoftware.githubapplicationmvp.model.GithubUser;
 import riviasoftware.githubapplicationmvp.R;
+import riviasoftware.githubapplicationmvp.ui.presenters.MainFragmentPresenter;
+import riviasoftware.githubapplicationmvp.ui.presenters.Presenter;
+
+import static com.bumptech.glide.request.RequestOptions.circleCropTransform;
 
 
 /**
@@ -39,44 +44,35 @@ public class ListUserAdapter extends RecyclerView.Adapter<ListUserAdapter.ListUs
 
     private View.OnClickListener listener;
 
+    private UserListBinding binding;
 
-    public ListUserAdapter(Context context, List<GithubUser> data){
+    private MainFragmentPresenter presenter;
+
+    public ListUserAdapter(Context context, List<GithubUser> data, MainFragmentPresenter presenter){
             this.context = context;
             this.data = data;
+            this.presenter = presenter;
             inflater = LayoutInflater.from(context);
     }
 
     @Override
     public ListUserAdapterViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View view = inflater.inflate(R.layout.user_list,parent,false);
-        ListUserAdapterViewHolder holder = new ListUserAdapterViewHolder(view);
-        return holder;
+        binding = DataBindingUtil.inflate(inflater,R.layout.user_list,parent,false);
+        return new ListUserAdapterViewHolder(binding);
 
     }
 
     @Override
     public void onBindViewHolder(ListUserAdapterViewHolder holder, int position) {
+        final GithubUser user = data.get(position);
+        holder.bind(user,presenter);
+    }
 
-        final ImageView image = holder.mImageView;
-        Glide.with(context).load(data.get(position).getAvatarUrl()).asBitmap().centerCrop().into(new BitmapImageViewTarget(image) {
-            @Override
-            protected void setResource(Bitmap resource) {
-                RoundedBitmapDrawable circularBitmapDrawable =
-                        RoundedBitmapDrawableFactory.create(context.getResources(), resource);
-                circularBitmapDrawable.setCircular(true);
-
-                image.setImageDrawable(circularBitmapDrawable);
-
-            }
-        });
-
-        holder.mUserName.setText(data.get(position).getLogin());
-        holder.mGithubUrl.setText(data.get(position).getUrl());
-        holder.mRetaliveLayout.setTag(data.get(position));
-        holder.mRetaliveLayout.setOnClickListener(this);
-
-
+    @BindingAdapter("android:src")
+    public static void setImageUrl(ImageView view, String url) {
+        Glide.with(view.getContext()).load(url)
+                .apply(circleCropTransform()).into(view);
     }
 
     @Override
@@ -119,19 +115,21 @@ public class ListUserAdapter extends RecyclerView.Adapter<ListUserAdapter.ListUs
 
     public class ListUserAdapterViewHolder extends RecyclerView.ViewHolder{
 
-        ImageView mImageView;
-        TextView mUserName;
-        TextView mGithubUrl;
-        RelativeLayout mRetaliveLayout;
+        private ViewDataBinding binding;
 
-        public ListUserAdapterViewHolder(View itemView) {
-            super(itemView);
-            mRetaliveLayout = (RelativeLayout) itemView.findViewById(R.id.relative_user_in_list);
-            mImageView = (ImageView) itemView.findViewById(R.id.user_image);
-            mUserName = (TextView) itemView.findViewById(R.id.user_name);
-            mGithubUrl = (TextView) itemView.findViewById(R.id.github_url);
+        public ListUserAdapterViewHolder(ViewDataBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
 
         }
+
+        public void bind (GithubUser user, MainFragmentPresenter p){
+            binding.setVariable(BR.user, user);
+            binding.setVariable(BR.presenter,p);
+            binding.executePendingBindings();
+        }
+
+
 
 
 

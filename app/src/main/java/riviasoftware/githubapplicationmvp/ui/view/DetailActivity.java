@@ -1,7 +1,7 @@
-package riviasoftware.githubapplicationmvp.View;
+package riviasoftware.githubapplicationmvp.ui.view;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 
@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import riviasoftware.githubapplicationmvp.Model.Data.GithubUserDetail;
+import riviasoftware.githubapplicationmvp.model.GithubUserDetail;
 import riviasoftware.githubapplicationmvp.R;
 
 public class DetailActivity extends AppCompatActivity {
@@ -20,7 +20,7 @@ public class DetailActivity extends AppCompatActivity {
     ImageView userPhoto;
 
     @BindView(R.id.toolbar)
-    android.support.v7.widget.Toolbar toolbar;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
